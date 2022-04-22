@@ -9,9 +9,35 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Capacitor Storage</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-item>
+    <ion-label> Id: </ion-label>
+    <ion-input type='number' id='id' [(ngModel)] = 'id'></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label> Name: </ion-label>
+    <ion-input type='text' id='name' [(ngModel)] = 'name'></ion-input>
+  </ion-item>
+
+  <ion-button (click)="saveUser()">
+    <ion-icon name='save'></ion-icon> Save User
+  </ion-button>
+
+
+  <!-- <ion-list>
+    <ion-item *ngFor="let user of users">{{user.id}}:{{user.name}}</ion-item>
+  </ion-list> -->
+
+  <ion-list>
+    <ion-item *ngFor="let user of users; let i = index">
+      {{user.id}}:{{user.name}}
+      <ion-button (click)="deleteUser(i)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>
